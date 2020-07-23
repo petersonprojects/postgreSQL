@@ -11,6 +11,19 @@
 -- this changes chili's category to American from Thai
 -- UPDATE restaurant SET category = 'American' WHERE id = 4;
 
--- query for names of restaurants that I gave 5 start
+-- 1 query for names of restaurants that I gave 5 stars
 SELECT name FROM restaurant WHERE stars = 5;
+
+-- 2 query for favorite dish of all 5 star restaurants
+SELECT favorite_dish FROM restaurant WHERE stars = 5;
+
+-- 3 query for the id of restaurant by specific name
+SELECT id FROM restaurant WHERE name = 'Chuys';
+
+-- 4 query for Indian restaurants
+SELECT name FROM restaurant WHERE category = 'Indian';
+
+SELECT name FROM restaurant WHERE category = 'Indian';
+SELECT name FROM restaurant WHERE category = 'Indian';
+SELECT name FROM restaurant WHERE category = 'Indian';
 
