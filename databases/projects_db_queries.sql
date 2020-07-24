@@ -83,18 +83,70 @@
 --    which projects had no associated tech?
 
 
-SELECT 
-    project.name AS proj_name, tech.name AS tech_name
-FROM
-    project
-LEFT OUTER JOIN
-    project_uses_tech
-ON
-    project_uses_tech.project_id = project.id
-LEFT OUTER JOIN
-    tech
-ON
-    project_uses_tech.tech_id = tech.id;
+-- SELECT 
+--     project.name AS proj_name, tech.name AS tech_name
+-- FROM
+--     project
+-- LEFT OUTER JOIN
+--     project_uses_tech
+-- ON
+--     project_uses_tech.project_id = project.id
+-- LEFT OUTER JOIN
+--     tech
+-- ON
+--     project_uses_tech.tech_id = tech.id;
 
 -- from this we learn that whiteboard exercises has no associated tech
 
+-- 6. get count of number of projects that use each tech
+
+-- SELECT 
+--     COUNT(project)
+-- FROM
+--     project
+-- LEFT OUTER JOIN
+--     project_uses_tech
+-- ON
+--     project_uses_tech.project_id = project.id
+-- LEFT OUTER JOIN
+--     tech
+-- ON
+--     project_uses_tech.tech_id = tech.id
+-- GROUP BY
+--     tech_id;
+
+
+-- 7. List all projects along with each tech used
+
+-- SELECT 
+--     project.name AS proj_name, tech.name AS tech_name
+-- FROM
+--     tech
+-- FULL OUTER JOIN
+--     project_uses_tech
+-- ON
+--     project_uses_tech.tech_id = tech.id
+-- FULL OUTER JOIN
+--     project
+-- ON
+--     project_uses_tech.project_id = project.id;
+
+
+-- 8. List all distinct techs that are used by at least 1 proj
+
+SELECT
+    tech.name AS tech_name
+FROM 
+    tech
+INNER JOIN
+    project_uses_tech
+ON
+    project_uses_tech.tech_id = tech.id
+INNER JOIN
+    project
+ON
+    project.id = project_uses_tech.project_id
+GROUP BY
+    tech.name;
+
+-- lists all the unique techs with at least 1 projec that uses
