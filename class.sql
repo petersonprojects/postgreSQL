@@ -81,6 +81,11 @@
 -- INNER JOIN articles ON author.id = articles.author_id
 -- WHERE author_id = 2;
 
-SELECT author.id AS authorID,articles.id AS articleID, title, name
-FROM author 
-FULL OUTER JOIN articles ON author.id = articles.author_id;
+-- SELECT author.id AS authorID,articles.id AS articleID, title, name
+-- FROM author 
+-- FULL OUTER JOIN articles ON author.id = articles.author_id;
+
+-- SELECT name, COUNT(articles.id)
+-- FROM author 
+-- FULL OUTER JOIN articles ON author.id = articles.author_id
+-- GROUP BY author.id;
